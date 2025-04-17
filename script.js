@@ -2,7 +2,7 @@ const button = document.getElementById('actionButton');
 const membersList = document.getElementById('membersList');
 
 const members = [
-    { name: 'Nguyễn Thanh Thiên', image: 'thien.png' },
+    { name: 'Nguyễn Thanh Thiên', image: 'image/Thien.jpg' },
     { name: 'Nguyễn Văn Tổng', image: 'image/tong.jpg' },
     { name: 'Nguyễn Huỳnh Kỹ Thuật', image: 'kythuat.png' }
 ];
