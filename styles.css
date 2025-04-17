@@ -1,0 +1,243 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Biến màu sắc để dễ dàng tùy chỉnh */
+:root {
+    --primary-color: #007bff; /* Xanh dương chủ đạo */
+    --secondary-color: #6c757d; /* Xám phụ */
+    --light-bg: #f8f9fa; /* Nền sáng */
+    --dark-text: #343a40; /* Chữ tối */
+    --light-text: #ffffff; /* Chữ sáng */
+    --border-color: #dee2e6; /* Màu viền */
+    --shadow-color: rgba(0, 0, 0, 0.1); /* Màu đổ bóng */
+    --hover-color: #0056b3; /* Màu khi hover */
+    --success-color: #28a745; /* Màu xanh lá cây (có thể dùng cho thông báo) */
+    --code-bg: #e8eaed;
+    --code-text: #c7254e;
+}
+
+/* Thiết lập cơ bản */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Cuộn trang mượt mà */
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.7; /* Tăng khoảng cách dòng */
+    background-color: var(--light-bg);
+    color: var(--dark-text);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Căn giữa nội dung theo chiều ngang */
+    padding: 25px 15px; /* Thêm padding */
+    min-height: 100vh; /* Đảm bảo body chiếm ít nhất toàn màn hình */
+}
+
+/* Phần Header */
+header {
+    background: linear-gradient(135deg, var(--primary-color), #0056b3); /* Gradient nền */
+    color: var(--light-text);
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    width: 100%;
+    max-width: 900px; /* Giới hạn chiều rộng */
+    margin-bottom: 2.5rem;
+    border-radius: 12px; /* Bo góc nhiều hơn */
+    box-shadow: 0 6px 12px rgba(0, 123, 255, 0.3);
+    /* Hiệu ứng vào nhẹ nhàng */
+    opacity: 0;
+    transform: translateY(-25px);
+    animation: fadeInDown 0.7s ease-out forwards;
+}
+
+header h1 {
+    font-size: 2.8rem; /* Tăng kích thước tiêu đề */
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Thêm bóng chữ */
+}
+
+/* Phần Main */
+main {
+    background-color: var(--light-text);
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    text-align: center;
+    max-width: 900px; /* Giới hạn chiều rộng */
+    width: 100%;
+    margin-bottom: 2.5rem;
+    /* Hiệu ứng vào */
+    opacity: 0;
+    transform: scale(0.9);
+    animation: scaleUp 0.6s 0.3s ease-out forwards; /* delay 0.3s */
+}
+
+main p {
+    font-size: 1.2rem; /* Tăng kích thước chữ */
+    margin-bottom: 2rem;
+    color: var(--secondary-color);
+}
+
+/* Nút bấm */
+#actionButton {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    border: none;
+    padding: 14px 30px; /* Tăng padding */
+    font-size: 1.1rem; /* Tăng kích thước chữ */
+    font-weight: 700;
+    border-radius: 50px; /* Bo tròn nhiều */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0, 123, 255, 0.4);
+    letter-spacing: 0.5px; /* Thêm khoảng cách chữ */
+}
+
+#actionButton:hover, #actionButton:focus {
+    background-color: var(--hover-color);
+    transform: translateY(-4px) scale(1.05); /* Hiệu ứng nhô lên rõ hơn */
+    box-shadow: 0 5px 12px rgba(0, 86, 179, 0.5);
+    outline: none; /* Bỏ viền focus mặc định */
+}
+
+#actionButton:active {
+    transform: translateY(-1px) scale(1);
+    box-shadow: 0 2px 5px rgba(0, 123, 255, 0.4);
+}
+
+/* Phần Hướng dẫn */
+#instructions {
+    background-color: #ffffff; /* Nền trắng */
+    padding: 2.5rem;
+    border-radius: 12px;
+    max-width: 900px;
+    width: 100%;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 8px var(--shadow-color);
+    /* Hiệu ứng vào */
+    opacity: 0;
+    animation: fadeIn 0.9s 0.6s ease-in forwards; /* delay 0.6s */
+}
+
+#instructions h2 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem; /* Tăng kích thước */
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 0.8rem;
+    display: inline-block;
+}
+
+#instructions h3 {
+    color: var(--dark-text);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.4rem; /* Tăng kích thước */
+    position: relative;
+    padding-left: 1.5rem; /* Tạo khoảng trống cho icon */
+}
+
+/* Thêm icon nhỏ trước h3 */
+#instructions h3::before {
+    content: '👉'; /* Hoặc bạn có thể dùng Font Awesome */
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+
+#instructions > p { /* Chỉ định rõ p ngay sau instructions */
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+#instructions ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+#instructions li {
+    background-color: #f8f9fa; /* Nền hơi xám cho từng mục */
+    margin-bottom: 1rem;
+    padding: 1.2rem 1.5rem; /* Tăng padding */
+    border-radius: 8px;
+    border-left: 6px solid var(--primary-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.07);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-left-color 0.25s ease;
+}
+
+#instructions li:hover {
+    transform: translateX(8px) scale(1.01); /* Hiệu ứng di chuyển và phóng to nhẹ */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-left-color: var(--hover-color); /* Đổi màu viền khi hover */
+}
+
+#instructions code {
+    background-color: var(--code-bg);
+    color: var(--code-text);
+    padding: 0.3em 0.6em;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.95em;
+}
+
+/* Keyframes cho Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleUp {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive design (ví dụ đơn giản) */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.2rem;
+    }
+    main, #instructions {
+        padding: 1.5rem;
+    }
+    #instructions h2 {
+        font-size: 1.7rem;
+    }
+    #instructions h3 {
+        font-size: 1.2rem;
+    }
+}
+
