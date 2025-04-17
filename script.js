@@ -1,16 +1,20 @@
-// Lấy phần tử nút và phần tử hiển thị tên
 const button = document.getElementById('actionButton');
 const membersList = document.getElementById('membersList');
 
-// Mảng chứa tên các thành viên
-const members = ['Nguyễn Thanh Thiên', 'Nguyễn Văn Tổng', 'Nguyễn Huỳnh Kỹ Thuật'];
+const members = [
+    { name: 'Nguyễn Thanh Thiên', image: 'thien.png' },
+    { name: 'Nguyễn Văn Tổng', image: 'image/tong.jpg' },
+    { name: 'Nguyễn Huỳnh Kỹ Thuật', image: 'kythuat.png' }
+];
 
-// Thêm sự kiện click vào nút
 button.addEventListener('click', () => {
-    // Tạo một danh sách HTML để hiển thị tên thành viên
     membersList.innerHTML = '<ul>';
     members.forEach(member => {
-        membersList.innerHTML += `<li>${member}</li>`;
+        membersList.innerHTML += `
+            <li>
+                <img src="${member.image}" alt="Avatar" style="width:80px; height:80px; border-radius:50%; margin-right:10px;">
+                ${member.name}
+            </li>`;
     });
     membersList.innerHTML += '</ul>';
 });
